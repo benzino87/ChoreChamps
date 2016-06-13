@@ -1,2 +1,2 @@
 # ChoreChamps
-Easy-to-use chore tracker for children, influenced by the agile development model and applied at home! Parents will now have an easy way of tracking their children's progress on daily/weekly/monthly chores. Kids will have a very intuitive application that uses a points based system for rewarding their hard work. 
+Easy-to-use chore tracker for children, influenced by a web app that monitors progress for agile development team sprints applied at home! Parents will now have an easy way to assign and distribute chores, and the ability to track their children's progress on daily/weekly/monthly basis. Kids will have a very intuitive application that uses a points based system for rewarding their hard work. 

@@ -1,0 +1,136 @@
+<!Doctype <!DOCTYPE html>
+<html>
+    <head>
+        <title>Chore Champs!</title>
+        <link rel="stylesheet" type="text/css" href="champ.css" />
+        <script type="text/javascript" src="login.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <!--<img src="Images/chorechamp.png"></img>-->
+            <h1>Chore Champs</h1>
+            <h3>Innovating the household chore list<br>"Make chores great again!"</h3>
+        </div>
+        <div class="login">
+            <ul>
+                <li id = "signup">Sign up</li>
+                <li id = "login">Login</li>
+                <li id="link">forgot username?</li>
+            </ul>
+        </div>
+        
+        <div id="signUp-div" class="modalOne">
+            <div id="signUpModal-content" class="formOne">
+                <span id="closeBtnOne">x</span>
+                <h4>First, lets create your account. 
+                    We need to get some information about you</h4>
+                <form name="signupform" onsubmit="return validateSignUp()" method="POST" action="createAccount.php">
+                    Email address:<br>
+                    <input type="text" name="email" value="ex:example@gmail.com"/><br>
+                    First Name:<br>
+                    <input type="text" name="firstName" value="ex:Eddard"/><br>
+                    Last Name:<br>
+                    <input type="text" name="lastName" value="ex:Stark"/><br>
+                    How many children do you have?
+                    <input type="text" name="kidNum" value="ex:5"/><br>
+                    What do you want to call your Group Name?<br>(This will be your account name)<br>(Your kids will also use this to login)<br>
+                    <input type="text" name="groupName" value="ex:TheStarks"/><br>
+                    Password:<br>
+                    <input type="password" name="password1"/><br>
+                    Re-enter Password:<br>
+                    <input type="password" name="password2"/><br>
+                    <input type="submit" value="Submit" id="firstSubmit"/>
+                </form>
+            </div>
+        </div>
+        <div id="login-div" class="modalTwo">
+            <div id="loginModal-content" class="formTwo">
+                <span id="closeBtnTwo">x</span>
+                <h1>Login</h1>
+                <form name="loginform" onsubmit="return validateLogin()" method="POST" action="validateLogin.php">
+                    Account name:<br>
+                    <input type="text" name="accName" value="ex: TheStarks.John"/><br>
+                    Password:<br>
+                    <input type="password" name="password"/><br>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </div>
+            
+        </div>
+       
+    </body>
+    <script type="text/javascript">
+        var signUpbtn = document.getElementById("signup");
+        var loginBtn = document.getElementById("login");
+        
+        var closeFormOne = document.getElementById("closeBtnOne");
+        closeFormOne.onclick = function(){
+            signUpModal.style.display = "none";
+        }
+        
+        var signUpModal = document.getElementById("signUp-div");
+        signUpbtn.onclick = function(){
+            signUpModal.style.display = "block";
+        }
+        
+        var closeFormTwo = document.getElementById("closeBtnTwo");
+        closeFormTwo.onclick = function(){
+            loginModal.style.display = "none";
+        }
+        
+        var loginModal = document.getElementById("login-div");
+        loginBtn.onclick = function(){
+            loginModal.style.display = "block";
+        }
+        function validateSignUp(){
+            var email = document.forms["signupform"]["email"].value;
+            var firstN = document.forms["signupform"]["firstName"].value;
+            var lastN = document.forms["signupform"]["lastName"].value;
+            var groupN = document.forms["signupform"]["groupName"].value;
+            var pwd1 = document.forms["signupform"]["password1"].value;
+            var pwd2 = document.forms["signupform"]["password2"].value;
+            if (email == null || email == "") {
+                alert("Must have valid email");
+                return false;
+            }
+            if (firstN == null || firstN == "") {
+                alert("You must enter your first name");
+                return false;
+            }
+            if (lastN == null || lastN == "") {
+                alert("You must enter your last name");
+                return false;
+            }
+            if (groupN == null || groupN == "") {
+                alert("You must have a last name");
+                return false;
+            }
+            if (pwd1 == null || pwd1 == "") {
+                alert("You must enter a password");
+                return false;
+            }
+            if (pwd2 == null || pwd2 == "") {
+                alert("You must re-enter your password");
+                return false;
+            }
+            if (pwd1 != pwd2){
+                alert("Passwords do not match");
+                return false;
+            }
+        }
+        function validateLogin(){
+            var accName = document.forms["loginform"]["accName"].value;
+            var pwd = document.forms["loginform"]["password"].value;
+            if(accName == null || accName ==""){
+                alert("No account name was entered");
+                return false;
+            }
+            if(pwd == null || pwd == ""){
+                alert("No password was entered");
+                return false;
+            }
+            
+        }
+        
+    </script>
+</html>
