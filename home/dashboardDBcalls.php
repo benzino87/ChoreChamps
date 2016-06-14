@@ -60,4 +60,27 @@ function queryChamps($groupName){
         return $rooms;
     }
 }
+function queryChores($gName, $cName){
+    $servername = "127.0.0.1";
+    $username = "benselj";
+    $password = "";
+    $db = "CHORECHAMPS";
+    $conn = mysqli_connect($servername, $username, $password, $db);
+    
+    $query = "SELECT c.rName, d.description, c.pointValue
+                FROM CHORE c, DESCRIPTION d
+                WHERE c.dID = d.dID AND
+                c.cName = '$cName' AND
+                c.groupName = '$gName'";
+    $result = mysqli_query($conn, $query);
+    $choreDescription = array();
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+            array_push($choreDescription, $row['rName']);
+            array_push($choreDescription, $row['description']);
+            array_push($choreDescription, $row['pointValue']);
+        }
+    }
+    return $choreDescription;
+}
 ?>

@@ -110,11 +110,13 @@ function createTables($servername, $username, $password, $db){
         rName VARCHAR(30) NOT NULL,
         dID INT(6) NOT NULL,
         groupName VARCHAR(30) NOT NULL,
+        cName VARCHAR(30) NOT NULL,
         comID INT(6),
         pointValue INT(6) NOT NULL,
         CONSTRAINT FOREIGN KEY(rName) REFERENCES ROOM(name),
         CONSTRAINT FOREIGN KEY(dID) REFERENCES DESCRIPTION(dID),
         CONSTRAINT FOREIGN KEY(groupName) REFERENCES PARENT(groupName),
+        CONSTRAINT FOREIGN KEY(cName) REFERENCES CHAMP(name),
         CONSTRAINT FOREIGN KEY(comID) REFERENCES COMMENT(comID)
         )";
     

@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <?php
+include('dashboardDBcalls.php');
 session_start();
-if(!isset($_SESSION['accName'])){
+/**
+ * Check for admin or user session
+ **/
+if(!isset($_SESSION['accName']) && !isset($_SESSION['admAccName'])){
     header("Location: /welcome/login.html");
 }
-include('db.php');
-$accName = $_SESSION['accName'];
-// $chores = queryChores($accName);
+/**
+ * Check for admin session and use query string to populate data
+ **/
+if(isset($_SESSION['admAccName']) && !isset($_SESSION['accName'])){
+    //view chosen champ from query string
+    if(isset($_GET['champ'])){
+        $accName = $_GET['champ'];
+        $admAcc = $_SESSION['admAccName'];
+    }else{
+        header("Location: /welcome/login.html");
+    }
+}
+/**
+ * Check for user session and use session variable to populate data
+ **/
+if(isset($_SESSION['accName']) && !isset($_SERVER['admAccName'])){
+    //use the champ from session
+    $accName = $_SESSION['accName'];
+    //NEED TO FIND ADMIN ACCOUNT NAME;
+}
+
+$currentChores = queryChores($admAcc, $accName);
 
 ?>
 <html>
@@ -16,22 +39,40 @@ $accName = $_SESSION['accName'];
     </head>
     <body>
         <div class="titelbar">
-            <div class="title">
-                <h4>Champ Dashboard</h4>
+            <div class="header">
+                <a href="logout.php">LOGOUT</a>
+                <h1>Champ Dashboard</h1>
             </div>
-            <div class="info">
-                <p>Click and drag the chores you've completed! Once complete you will score some points!</p>
+            <div class="infoPoints">
+                <h3>Click and drag the chores you've completed! Once complete you will score some points!</h3>
+                <p>Your total points are:</p>
+                <div class="pointvalue">
+                    <p>0</p>
+                </div>
             </div>
         </div>
         <div class="choreList">
             <div class="todo">
-                <ul id="todoChores" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <li>Chores not yet complete</li>
+                <ul id="todoChores" ondrop="drop(event)" ondragover="allowDrop(event)">Chores not yet complete
+                <?php
+                    if(count($currentChores) > 0){
+                        for($i = 0; $i < count($currentChores); $i++){
+                            if($i % 3 == 0){   
+                                echo "<li id=chore draggable=true ondragstart=drag(event)>";
+                                echo "<h4>".$currentChores[$i]."</h4>";
+                            }else if($i % 3 == 1){
+                                echo "<p>".$currentChores[$i]."</p>";
+                            }else{
+                                echo "<p>Point value:".$currentChores[$i]."</p>";
+                                echo "</li>";
+                            }
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="done">
-                <ul id="doneChores" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <li>COMPLETE!</li>
+                <ul id="doneChores" ondrop="drop(event)" ondragover="allowDrop(event)">COMPLETE!
                 </ul>
             </div>
         </div>
@@ -39,40 +80,6 @@ $accName = $_SESSION['accName'];
         
     </body>
     <script type="text/javascript">
-        
-        function addToList(){
-        //     /**
-        //      * Retrieve text nodes from select tags
-        //      */
-        //     var roomType = document.getElementById("roomType");
-        //     var room = roomType.options[roomType.selectedIndex].value;
-        //     var descripType = document.getElementById("descripType");
-        //     var descrip = descripType.options[descripType.selectedIndex].value;
-        //     var pointType = document.getElementById("pointType");
-        //     var point = pointType.options[pointType.selectedIndex].value;
-            
-        //     /**
-        //      * Create list tag and append data from select tags
-        //      */
-        //     var list = document.getElementById("unassigned");
-        //     var chore = document.createElement("LI");
-        //     var header = document.createElement("h4");
-        //     var textHead = document.createTextNode(room);
-        //     header.appendChild(textHead);
-        //     chore.appendChild(header);
-        //     var paragraphOne = document.createElement("p");
-        //     var textOne = document.createTextNode(descrip);
-        //     paragraphOne.appendChild(textOne);
-        //     chore.appendChild(paragraphOne);
-        //     var paragraphTwo = document.createElement("p");
-        //     var textTwo = document.createTextNode("Point value:"+point);
-        //     paragraphTwo.appendChild(textTwo);
-        //     chore.appendChild(paragraphTwo);
-        //     chore.setAttribute("id", "listItem");
-        //     chore.setAttribute("draggable", "true");
-        //     chore.setAttribute("ondragstart", "drag(event)");
-        //     list.appendChild(chore);
-        // }
         
         function allowDrop(ev) {
             ev.preventDefault();
@@ -88,6 +95,34 @@ $accName = $_SESSION['accName'];
             // var getData = document.getElementById(data);
             ev.target.appendChild(document.getElementById(data));
             
+            /**
+             * Gets information about the node that was dropped and appends to 
+             * a query string
+             **/
+           
+            var childNameNode = document.getElementById("doneChores");
+            var childName = childNameNode.firstChild.nodeValue;
+            var temp = document.getElementById(data);
+            var listNode = temp.childNodes;
+            var room = listNode[0].firstChild.nodeValue;
+            var description = listNode[1].firstChild.nodeValue;
+            var pointValueTemp = listNode[2].firstChild.nodeValue;
+            var pointValue = pointValueTemp.substr(12);
+            //conver this to query string
+            
+
+            
+            // var postData = {
+            //     postAdmin : admin,
+            //     postRoom : room,
+            //     postName : childName,
+            //     postDescrip : description,
+            //     postPoint : pointValue
+            // };
+            // console.log(postData);
+            // jQuery.post("ondragevents.php", postData, function(){
+            //     alert("Added chore!");
+            // });
         }
         
         
