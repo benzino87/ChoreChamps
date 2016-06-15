@@ -26,15 +26,15 @@
                     We need to get some information about you</h4>
                 <form name="signupform" onsubmit="return validateSignUp()" method="POST" action="createAccount.php">
                     Email address:<br>
-                    <input type="text" name="email" value="ex:example@gmail.com"/><br>
+                    <input type="text" name="email" placeholder="example@gmail.com"/><br>
                     First Name:<br>
-                    <input type="text" name="firstName" value="ex:Eddard"/><br>
+                    <input type="text" name="firstName" placeholder="Eddard"/><br>
                     Last Name:<br>
-                    <input type="text" name="lastName" value="ex:Stark"/><br>
+                    <input type="text" name="lastName" placeholder="Stark"/><br>
                     How many children do you have?
-                    <input type="text" name="kidNum" value="ex:5"/><br>
+                    <input type="text" name="kidNum" placeholder="ex:5"/><br>
                     What do you want to call your Group Name?<br>(This will be your account name)<br>(Your kids will also use this to login)<br>
-                    <input type="text" name="groupName" value="ex:TheStarks"/><br>
+                    <input type="text" name="groupName" placeholder="ex: TheStarks"/><br>
                     Password:<br>
                     <input type="password" name="password1"/><br>
                     Re-enter Password:<br>
@@ -49,7 +49,7 @@
                 <h1>Login</h1>
                 <form name="loginform" onsubmit="return validateLogin()" method="POST" action="validateLogin.php">
                     Account name:<br>
-                    <input type="text" name="accName" value="ex: TheStarks.John"/><br>
+                    <input type="text" name="accName" placeholder="ex: TheStarks.John"/><br>
                     Password:<br>
                     <input type="password" name="password"/><br>
                     <input type="submit" value="Submit"/>
