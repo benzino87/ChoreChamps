@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Chore Champs!</title>
+        <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
+        <script type="text/javascript" src="/resources/js/login-controller.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".gs-button").click(function(){
+                $(".welcome-page").fadeOut();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="welcome-page" id="welcome">
+            <div class="logo">
+                <img src="/resources/img/logo.png"></img>
+            </div>
+            <div class="gs-info">
+                <div class="gs-info-text">
+                    <h1>Welcome to Chore Champs!</h1>
+                    <p id="info">An easy-to-use chore tracker for children! influenced by a web 
+                    app that monitors progress for agile development team sprints applied 
+                    at home! Parents will now have an easy way to assign and distribute chores, 
+                    and the ability to track their children's progress on a daily/weekly/monthly basis. 
+                    Kids will have a very intuitive application that uses a points based 
+                    system for rewarding their hard work. </p>
+                </div>
+            </div>
+            <div class="gs-footer">
+                <div class="gs-button">
+                    <span id="getstarted" onclick="displayIndex()">Get Started!</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="home-page" id="homepage">
+            <div class=header>
+                <div class=headerlogo>
+                    <div class="tiny-logo">
+                        <img src="/resources/img/logo_tiny.png"></img>
+                    </div>
+                </div>
+            </div>
+            <div class="left-pane">
+                <div class="parentimg">
+                    <h4>Parents enter here!</h4>
+                    <img src="/resources/img/stick_parents.png"></img>
+                </div>
+            </div>
+            <div class="right-pane">
+                <div class="kidimg">
+                    <h4>Kids enter here!</h4>
+                    <img src="/resources/img/stick_kids.png"></img>
+                </div>
+            </div>
+            <div class="bottom-pane">
+                <div class="signup">
+                    
+                </div>
+            </div>
+        </div>
+
+</html>

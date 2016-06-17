@@ -40,6 +40,8 @@ $numberOfKids = $_SESSION['kidNum'];
                 var field = document.forms["kidForm"][i].value;
                 if(field == "" || field == null){
                     var response = document.getElementById("response");
+                    response.style.textAlign = "center";
+                    response.style.color = "red";
                     response.innerHTML = "You must enter names for each child";
                     return false;
                 }

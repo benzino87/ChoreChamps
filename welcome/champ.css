@@ -1,11 +1,11 @@
 body{
 	background-color: #319696;
+	font-family: arial;
 }
 .header div{
 	width: 100%;
 }
 .header h1, h3{
-  font-family: arial;
 	font-size: 48px;
 	font-style: normal;
 	font-variant: normal;
@@ -171,10 +171,10 @@ CHAMP SETUP
 .champSetup h4{
 	text-align: left;
 }
-.champSetup form{
+.champSetup{
+	margin-left: 43%;
 	width: 15%;
 	padding: 20px;
-	border: 1px solid black;
 	background-color: white;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -182,9 +182,15 @@ CHAMP SETUP
 	border-bottom-right-radius: 10px;
 }
 .champSetup input{
-	border: 1px solid black;
 	border-top-right-radius: 10px;
 	margin: 5px;
 }
-
+.champForm{
+	padding: 20px;
+	background-color: #319696;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
 
