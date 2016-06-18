@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-include('dashboardDBcalls.php');
+$root = $_SERVER['DOCUMENT_ROOT'];
+include($root."/resources/php/dbcalls/dashboardDBcalls.php");
 session_start();
 /**
  * Check for admin or user session
@@ -35,20 +36,40 @@ $currentChores = queryChores($admAcc, $accName);
 <html>
     <head>
         <title>Champ Dashboard</title>
-        <link rel="stylesheet" href="dashboards.css" type="text/css" />
+        <link rel="stylesheet" href="/resources/css/home.css" type="text/css" />
     </head>
     <body>
-        <div class="titelbar">
-            <div class="header">
-                <a href="logout.php">LOGOUT</a>
-                <h1>Champ Dashboard</h1>
+        <div class="dashboard">
+        <div class=header>
+            <div class=logo>
+                <img src=/resources/img/logo_tiny.png></img>
             </div>
-            <div class="infoPoints">
+             <div class="title">
+                    <h4>Champ Dashboard</h4>
+                </div>
+            <div class=logout>
+                <a href=logout.php>LOGOUT</a><br>
+                <?php if(isset($_SESSION['admAccName'])){
+                    echo "<a href=adminDashboard.php>Admin Dashboard</a>";
+                }
+                ?>
+            </div>
+        </div>
+            <div class="info-div">
+                <div class="showaccname"><h4>Username:
+                <?php if(isset($_SESSION['admAccName'])){
+                    echo $admAcc;
+                    }else{
+                        echo $accName;
+                        }
+                        ?></h4></div>
+                <div class="userinfo">
                 <h3>Click and drag the chores you've completed! Once complete you will score some points!</h3>
                 <p>Your total points are:</p>
                 <div class="pointvalue">
                     <p>0</p>
                 </div>
+            </div>
             </div>
         </div>
         <div class="choreList">

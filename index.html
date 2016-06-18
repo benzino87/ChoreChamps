@@ -5,10 +5,12 @@
         <script type="text/javascript" src="/resources/js/login-controller.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script>
+            //Slide up and hide welcome page
             $(document).ready(function(){
                 $(".gs-button").click(function(){
-                $(".welcome-page").fadeOut();
-                });
+                    $(".welcome-page").fadeOut("slow");
+                    $(".welcome-page").fadeOut(2000);
+                    });
             });
         </script>
     </head>
@@ -44,21 +46,66 @@
                 </div>
             </div>
             <div class="left-pane">
-                <div class="parentimg">
+                <div class="parentimg" onclick="updateParentInfoAndDisplay()">
                     <h4>Parents enter here!</h4>
                     <img src="/resources/img/stick_parents.png"></img>
                 </div>
             </div>
             <div class="right-pane">
-                <div class="kidimg">
+                <div class="kidimg" onclick="updateKidInfoAndDisplay()">
                     <h4>Kids enter here!</h4>
                     <img src="/resources/img/stick_kids.png"></img>
                 </div>
             </div>
             <div class="bottom-pane">
                 <div class="signup">
-                    
+                    <h1>Not yet a member?</h1>
+                    <h2 class="signup-button" onclick="displaySignUp()">Sign up here!</h2>
                 </div>
+            </div>
+        </div>
+        
+        <!--Hidden sign up form-->
+        <div id="signup-div" class="outer-div-signup">
+            <div id="signupform-content" class="inner-div-signup">
+                <span id="closeFormOne" onclick="closeSignUp()">x</span>
+                <h1>Sign up</h1>
+                <form name="signupform" onsubmit="return validateSignUp()" method="POST" action="/resources/php/accountCreate.php">
+                    Email address:<br>
+                    <input type="text" name="email" placeholder="example@gmail.com"/><br>
+                    First Name:<br>
+                    <input type="text" name="firstName" placeholder="Eddard"/><br>
+                    Last Name:<br>
+                    <input type="text" name="lastName" placeholder="Stark"/><br>
+                    How many children do you have?
+                    <input type="text" name="kidNum" placeholder="ex:5"/><br>
+                    What do you want to call your Group Name?<br>(This will be your account name)<br>(Your kids will also use this to login)<br>
+                    <input type="text" name="groupName" placeholder="ex: TheStarks"/><br>
+                    Password:<br>
+                    <input type="password" name="password1"/><br>
+                    Re-enter Password:<br>
+                    <input type="password" name="password2"/><br>
+                    <input type="submit" value="Submit" id="firstSubmit"/>
+                </form>
+                <p id="response_signup"></p>
+            </div>
+        </div>
+        <!--Hidden Parent login form-->
+        <div id="login-div" class="outer-div-login">
+            <div id="login-content" class="inner-div-login">
+                <span id="closeFormTwo" onclick="closeLogin()">x</span>
+                <h1>Login</h1>
+                <p id="formInfo"></p>
+                <form name="loginform" onsubmit="return validateLogin()" method="POST" action="/resources/php/validateLogin.php">
+                    Account name:<br>
+                    <input type="text" name="accName" placeholder="ex: TheStarks"/><br>
+                    Password:<br>
+                    <input type="password" name="password"/><br>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </div>
+            <div class="invalid_response_login">
+                <p id="response_login"></p>
             </div>
         </div>
 

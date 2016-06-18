@@ -1,0 +1,217 @@
+body{
+  background-color: #1996ff;
+}
+.header{
+  background-color: #CCFFCC;
+  width: 100%;
+  height: 75px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.logo{
+  width: 33.3%;
+  float: left;
+  height: 75px;
+}
+.title{
+  width: 33.3%;
+  float: left;
+  font-size: 30px;
+  text-align: center;
+  height: 75px;
+}
+.logout{
+  width: 33.3%;
+  float: left;
+  height: 75px;
+}
+.logout a{
+  float: right;
+}
+.toppane{
+  background-color: #CCFFCC;
+  width: 100%;
+  border-radius: 5px;
+}
+.main{
+  text-align: right;
+}
+.main ul{
+  list-style: none;
+}
+.info{
+  text-align: center;
+}
+.unassignedChores{
+  margin-top: 10px;
+  width: 33%;
+  background-color: white;
+  float: left;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.assignedChoresOne{
+  width: 33%;
+  background-color: white;
+  float: left;
+  margin-left: 7px;
+  margin-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.assignedChoresTwo{
+  width: 33%;
+  background-color: white;
+  float: left;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-left: 7px;
+  margin-top: 10px;
+}
+#listItem{
+  background-color: #1996ff;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  border-radius:5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+#listItem p{
+  margin: 0;
+}
+#listItem h4{
+  margin: 0;
+}
+#unassigned h2{
+  font-size: 20px;
+}
+#champOne h2{
+  font-size: 20px;
+}
+#champTwo h2{
+  font-size: 20px;
+}
+#listItem:hover{
+  cursor: pointer;
+}
+.champ{
+  text-align: center;
+  width: 100%;
+}
+.champSetup{
+  width: 30%;
+  margin: auto;
+  background-color: #CCFFCC;
+  border-radius: 5px;
+}
+.user{
+  width: 10%;
+  float: left;
+}
+.info-div{
+  background-color: #CCFFCC;
+  border-radius: 5px;
+}
+.userinfo{
+  text-align: center;
+}
+.pointvalue{
+  width: 5%;
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+}
+.choreList{
+  width: 100%;
+}
+.todo{
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 49%;
+  float: left;
+}
+.done{
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-left: 2%;
+  width: 49%;
+  float: left;
+}
+.assignedChoresOne li{
+  background-color: #1996ff;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.assignedChoresOne p{
+  margin: 0;
+}
+.assignedChoresOne h4{
+  margin: 0;
+}
+.assignedChoresTwo li{
+  background-color: #1996ff;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  border-radius:5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.assignedChoresTwo p{
+  margin: 0;
+}
+.assignedChoresTwo h4{
+  margin: 0;
+}
+.unassignedChores li{
+  background-color: #1996ff;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.unassignedChores p{
+  margin: 0;
+}
+.unassignedChores h4{
+  margin: 0;
+}
+.todo li{
+  background-color: #1996ff;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  border-radius:5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.todo p{
+  margin: 0;
+}
+.todo h4{
+  margin: 0;
+}
+.done li{
+  background-color: #1996ff;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.done p{
+  margin: 0;
+}
+.done h4{
+  margin: 0;
+}

@@ -20,18 +20,16 @@ body{
 	background-color: #1996ff;
 	color: white;
 	padding: 1%;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 .gs-info-text h1{
 	font-size: 36px;
 }
 .gs-info-text p{
 	font-size: 18px;
-}
-.gs-footer{
-	height: 100%;
 }
 .gs-button{
 	position: absolute;
@@ -44,9 +42,10 @@ body{
 	height: 5%;
 	text-align: center;
 	background-color: #1996ff;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 .gs-button span{
   	vertical-align: center;
@@ -55,6 +54,7 @@ body{
 .gs-button:hover{
 	font-size: 21px;
 	text-decoration: underline;
+	cursor: pointer;
 }
 .home-page{
 	display: none;
@@ -79,18 +79,20 @@ body{
 	height: 60%;
 	margin: auto;
 	border: 3px solid #1996ff;
-	border-top-left-radius: 40px;
-	border-top-right-radius: 40px;
-	border-bottom-left-radius: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 .kidimg{
 	width: 30%;
 	height: 60%;
 	margin: auto;
 	border: 3px solid #1996ff;
-	border-top-left-radius: 40px;
-	border-top-right-radius: 40px;
-	border-bottom-left-radius: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 .parentimg img{
 	display: block;
@@ -102,7 +104,148 @@ body{
 }
 .parentimg:hover{
 	border: 5px solid #1996ff;
+	text-decoration: underline;
+	cursor: pointer;
 }
 .kidimg:hover{
 	border: 5px solid #1996ff;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.bottom-pane{
+	width: 100%;
+	float: left;
+	border-top: 5px solid #1996ff;
+}
+.signup{
+	text-align: center;
+}
+.signup h2{
+	width: 20%;
+  	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	background-color: #1996ff;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.signup h2:hover{
+	text-decoration: underline;
+	border: 5px solid #1996ff;
+	cursor: pointer;
+}
+/*
+SIGN UP DIV consider using a blow-up and deflate
+*/
+.outer-div-signup{
+	display: none; /*hide the div*/
+	position: fixed; /*keep it in place*/
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+.outer-div-signup #closeFormOne{
+  	float: right;
+	font-size: 24px;
+	font-weight: bold;
+	padding-right: 10px;
+}
+.outer-div-signup #closeFormOne:hover{
+	cursor: pointer;
+	color: white;
+}
+.inner-div-signup{
+	background-color: #CCFFCC;
+	width: 25%;
+	position: absolute;
+	left: 38%;
+	top: 10%;
+	
+}
+.inner-div-signup form, h4{
+	text-align: center;
+}
+.inner-div-signup form{
+	background-color: #1996ff;
+	font-size: 18px;
+	display: inline-block;
+	margin: 5%;
+	width: 90%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+  
+}
+.inner-div-signup input{
+	border: 1px solid black;
+	margin: 5px;
+}
+/*
+Login DIV consider using a blow-up and deflate
+*/
+.outer-div-login{
+	display: none; /*hide the div*/
+	position: fixed; /*keep it in place*/
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+.outer-div-login #closeFormTwo{
+  	float: right;
+	font-size: 24px;
+	font-weight: bold;
+	padding-right: 10px;
+}
+.outer-div-login #closeFormTwo:hover{
+	cursor: pointer;
+	color: white;
+}
+.inner-div-login{
+	background-color: #CCFFCC;
+	width: 25%;
+	position: absolute;
+	left: 38%;
+	top: 10%;
+	
+}
+.inner-div-login form, h4{
+	text-align: center;
+}
+.inner-div-login form{
+	background-color: #1996ff;
+	font-size: 18px;
+	display: inline-block;
+	margin: 5%;
+	width: 90%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+  
+}
+.inner-div-login input{
+	border: 1px solid black;
+	margin: 5px;
+}
+.inner-div-login p, h1{
+	text-align: center;
+}
+.inner-div-login p{
+	font-size: 20px;
 }
