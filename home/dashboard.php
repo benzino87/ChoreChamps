@@ -24,13 +24,14 @@ if(isset($_SESSION['admAccName']) && !isset($_SESSION['accName'])){
 /**
  * Check for user session and use session variable to populate data
  **/
-if(isset($_SESSION['accName']) && !isset($_SERVER['admAccName'])){
+if(isset($_SESSION['accName']) && !isset($_SESSION['admAccName'])){
     //use the champ from session
     $accName = $_SESSION['accName'];
+    $admAcc = $_SESSION['userGroup'];
     //NEED TO FIND ADMIN ACCOUNT NAME;
 }
-
 $currentChores = queryIncompleteChores($admAcc, $accName);
+$completedChores = queryCompleteChores($admAcc, $accName);
 
 ?>
 <html>
@@ -74,7 +75,7 @@ $currentChores = queryIncompleteChores($admAcc, $accName);
         </div>
         <div class="choreList">
             <div class="todo">
-                <ul id="todoChores" ondrop="drop(event)" ondragover="allowDrop(event)">Chores not yet complete
+                <ul id="todoChores">Chores not yet complete
                 <?php
                     if(count($currentChores) > 0){
                         for($i = 0; $i < count($currentChores); $i++){
@@ -94,13 +95,30 @@ $currentChores = queryIncompleteChores($admAcc, $accName);
             </div>
             <div class="done">
                 <ul id="doneChores" ondrop="drop(event)" ondragover="allowDrop(event)">COMPLETE!
+                <?php
+                    if(count($completedChores) > 0){
+                        for($i = 0; $i < count($completedChores); $i++){
+                            if($i % 3 == 0){   
+                                echo "<li>";
+                                echo "<h4>".$completedChores[$i]."</h4>";
+                            }else if($i % 3 == 1){
+                                echo "<p>".$completedChores[$i]."</p>";
+                            }else{
+                                echo "<p>Point value:".$completedChores[$i]."</p>";
+                                echo "</li>";
+                            }
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
         
         
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript">
+    jQuery.noConflict();
         
         function allowDrop(ev) {
             ev.preventDefault();
@@ -125,7 +143,6 @@ $currentChores = queryIncompleteChores($admAcc, $accName);
              **/
            
             var childNameNode = document.getElementById("doneChores");
-            var childName = childNameNode.firstChild.nodeValue;
             var temp = document.getElementById(data);
             var listNode = temp.childNodes;
             var room = listNode[0].firstChild.nodeValue;
@@ -134,19 +151,21 @@ $currentChores = queryIncompleteChores($admAcc, $accName);
             var pointValue = pointValueTemp.substr(12);
             //conver this to query string
             
-
             
-            // var postData = {
-            //     postAdmin : admin,
-            //     postRoom : room,
-            //     postName : childName,
-            //     postDescrip : description,
-            //     postPoint : pointValue
-            // };
-            // console.log(postData);
-            // jQuery.post("ondragevents.php", postData, function(){
-            //     alert("Added chore!");
-            // });
+            //Use Jquery AJAX call to update database
+            var admin = "<?php echo $admAcc?>";
+            var user = "<?php echo $accName?>";
+            var postData = {
+                postAdmin : admin,
+                postRoom : room,
+                postName : user,
+                postDescrip : description,
+                postPoint : pointValue
+            };
+            console.log(postData);
+            jQuery.post("updateChore.php", postData, function(){
+                alert("Chore complete!!");
+            });
         }
         
         

@@ -223,7 +223,7 @@ $choresForChampTwo = queryIncompleteChores($admAcc, $champs[1]);
                 postPoint: pointValue
             };
             console.log(postData);
-            jQuery.post("ondragevents.php", postData, function() {
+            jQuery.post("insertNewChore.php", postData, function() {
                 alert("Chore Added!");
             });
         }
@@ -264,7 +264,7 @@ $choresForChampTwo = queryIncompleteChores($admAcc, $champs[1]);
                 postPoint: pointValue
             };
 
-            jQuery.post("ondragevents.php", postData, function() {
+            jQuery.post("insertNewChore.php", postData, function() {
                 alert("Added chore!");
             });
 

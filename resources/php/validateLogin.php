@@ -16,7 +16,8 @@ if(strpos($accName, '.') == true){
     $pos = $pos+2;
     $account = substr($accName, $pos);
     if(queryLoginBasic($account, $group, $pwd) == true){
-        $_SESSION['accName'] = $accName;
+        $_SESSION['accName'] = $account;
+        $_SESSION['userGroup'] = $group;
         header("Location: /home/dashboard.php");
     }else{
         header("Location: /index.html");
