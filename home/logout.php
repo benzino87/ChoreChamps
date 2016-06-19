@@ -6,6 +6,8 @@ if(isset($_SESSION['admAccName'])){
 }else if(isset($_SESSION['accName'])){
     unset($_SESSION['accName']);
     session_destroy();
+}else{
+    header("Location: /index.html");
 }
 ?>
 <html>

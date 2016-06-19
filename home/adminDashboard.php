@@ -3,7 +3,7 @@
 //Verify Session
 session_start();
 if(!isset($_SESSION['admAccName'])){
-    header("Location: /welcome/login.html");
+    header("Location: /index.html");
 }
 $root = $_SERVER['DOCUMENT_ROOT'];
 include($root."/resources/php/dbcalls/dashboardDBcalls.php");

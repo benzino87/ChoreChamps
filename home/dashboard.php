@@ -7,7 +7,7 @@ session_start();
  * Check for admin or user session
  **/
 if(!isset($_SESSION['accName']) && !isset($_SESSION['admAccName'])){
-    header("Location: /welcome/login.html");
+    header("Location: /index.html");
 }
 /**
  * Check for admin session and use query string to populate data
@@ -18,7 +18,7 @@ if(isset($_SESSION['admAccName']) && !isset($_SESSION['accName'])){
         $accName = $_GET['champ'];
         $admAcc = $_SESSION['admAccName'];
     }else{
-        header("Location: /welcome/login.html");
+        header("Location: index.html");
     }
 }
 /**

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['admAccName'])){
-    header("Location: index.html");
+    header("Location: /index.html");
 }
 $root = $_SERVER['DOCUMENT_ROOT'];
 include($root."/resources/php/dbcalls/signup-loginDBcalls.php");

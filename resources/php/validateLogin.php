@@ -19,7 +19,7 @@ if(strpos($accName, '.') == true){
         $_SESSION['accName'] = $accName;
         header("Location: /home/dashboard.php");
     }else{
-        header("Location: index.html");
+        header("Location: /index.html");
     }
     //if "." does not exist in the acc name, then query account as admin user.
 }else{
@@ -27,7 +27,7 @@ if(strpos($accName, '.') == true){
         $_SESSION['admAccName'] = $accName;
         header("Location: /home/adminDashboard.php");
     }else{
-        header("Location: index.html");
+        header("Location: /index.html");
     }
 }
 
