@@ -1,9 +1,12 @@
+add css cursor: pointer to chore list items
 (must complete)Upate points based on completed chores
 (must complete)clean up embedded javascript / php - simplify db call functions
 (must complete)documentation
 Make chore undraggable after assigning it to a child user
 update index css
 handle any number of children for chore distrubution on admin dashboard page(currently only able to handle two)
+add functionality for a user who doesnt complete sign up process
+look into unique emails SQL
 (possible)Add timeframe for points calculations
 (possible)Implement cookies functionality - ideas?
 dynamic chore dropdowns / update sql to use appropirate chore descriptions
