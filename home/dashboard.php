@@ -30,7 +30,7 @@ if(isset($_SESSION['accName']) && !isset($_SERVER['admAccName'])){
     //NEED TO FIND ADMIN ACCOUNT NAME;
 }
 
-$currentChores = queryChores($admAcc, $accName);
+$currentChores = queryIncompleteChores($admAcc, $accName);
 
 ?>
 <html>
@@ -115,6 +115,9 @@ $currentChores = queryChores($admAcc, $accName);
             var data = ev.dataTransfer.getData("text");
             // var getData = document.getElementById(data);
             ev.target.appendChild(document.getElementById(data));
+            
+            //after drop prevent list item from being draggable
+            //document.getElementById(data).removeAttribute("draggable");
             
             /**
              * Gets information about the node that was dropped and appends to 

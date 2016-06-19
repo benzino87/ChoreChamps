@@ -15,8 +15,8 @@ $descriptions = queryDescription();
 //get champ names from the admin's account
 $champs = queryChamps($_SESSION['admAccName']);
 //get data from db for uploading current chore list
-$choresForChampOne = queryChores($admAcc, $champs[0]);
-$choresForChampTwo = queryChores($admAcc, $champs[1]);
+$choresForChampOne = queryIncompleteChores($admAcc, $champs[0]);
+$choresForChampTwo = queryIncompleteChores($admAcc, $champs[1]);
 ?>
     <html>
 
@@ -195,6 +195,9 @@ $choresForChampTwo = queryChores($admAcc, $champs[1]);
             var data = ev.dataTransfer.getData("text");
             // var getData = document.getElementById(data);
             ev.target.appendChild(document.getElementById(data));
+            
+            //after drop prevent list item from being draggable
+            document.getElementById(data).removeAttribute("draggable")
 
             /**
              * Gets information about the node that was dropped and appends to 
@@ -234,6 +237,9 @@ $choresForChampTwo = queryChores($admAcc, $champs[1]);
             var data = ev.dataTransfer.getData("text");
             // var getData = document.getElementById(data);
             ev.target.appendChild(document.getElementById(data));
+            
+            //after drop prevent list item from being draggable
+            document.getElementById(data).removeAttribute("draggable")
 
             /**
              * Gets information about the node that was dropped and appends to 

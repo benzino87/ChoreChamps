@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Function used to populate descriptions in select tag for building chore list item
+ **/
 function queryDescription(){
     $servername = "127.0.0.1";
     $username = "benselj";
@@ -19,6 +21,9 @@ function queryDescription(){
         return $descriptions;
     }
 }
+/**
+ * Function used to populate room names in select tag for build chore list item
+ **/
 function queryRoom(){
     $servername = "127.0.0.1";
     $username = "benselj";
@@ -39,6 +44,9 @@ function queryRoom(){
         return $rooms;
     }
 }
+/**
+ * Function used to populate kid names for admin dashboard chore distrubution
+ **/
 function queryChamps($groupName){
     $servername = "127.0.0.1";
     $username = "benselj";
@@ -60,7 +68,10 @@ function queryChamps($groupName){
         return $rooms;
     }
 }
-function queryChores($gName, $cName){
+/**
+ * Function used to query currently distributed INCOMPLETE chores
+ **/
+function queryIncompleteChores($gName, $cName){
     $servername = "127.0.0.1";
     $username = "benselj";
     $password = "";
@@ -71,7 +82,35 @@ function queryChores($gName, $cName){
                 FROM CHORE c, DESCRIPTION d
                 WHERE c.dID = d.dID AND
                 c.cName = '$cName' AND
-                c.groupName = '$gName'";
+                c.groupName = '$gName' AND
+                c.status = 0";
+    $result = mysqli_query($conn, $query);
+    $choreDescription = array();
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+            array_push($choreDescription, $row['rName']);
+            array_push($choreDescription, $row['description']);
+            array_push($choreDescription, $row['pointValue']);
+        }
+    }
+    return $choreDescription;
+}
+/**
+ * Function used to query currently distributed COMPLETE chores
+ **/
+function queryCompleteChores($gName, $cName){
+    $servername = "127.0.0.1";
+    $username = "benselj";
+    $password = "";
+    $db = "CHORECHAMPS";
+    $conn = mysqli_connect($servername, $username, $password, $db);
+    
+    $query = "SELECT c.rName, d.description, c.pointValue
+                FROM CHORE c, DESCRIPTION d
+                WHERE c.dID = d.dID AND
+                c.cName = '$cName' AND
+                c.groupName = '$gName' AND
+                c.status = 1";
     $result = mysqli_query($conn, $query);
     $choreDescription = array();
     if(mysqli_num_rows($result) > 0){
