@@ -1,5 +1,6 @@
 <?php
-include('db.php');
+$root = $_SERVER['DOCUMENT_ROOT'];
+include($root."/resources/php/dbcalls/signup-loginDBcalls.php");
 session_start();
 $accName = $_POST['accName'];
 $pwd = $_POST['password'];
