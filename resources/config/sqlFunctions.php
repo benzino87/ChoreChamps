@@ -113,6 +113,7 @@ function createTables($servername, $username, $password, $db){
         cName VARCHAR(30) NOT NULL,
         comID INT(6),
         pointValue INT(6) NOT NULL,
+        status TINYINT(1) DEFAULT 0,
         CONSTRAINT FOREIGN KEY(rName) REFERENCES ROOM(name),
         CONSTRAINT FOREIGN KEY(dID) REFERENCES DESCRIPTION(dID),
         CONSTRAINT FOREIGN KEY(groupName) REFERENCES PARENT(groupName),
@@ -121,33 +122,18 @@ function createTables($servername, $username, $password, $db){
         )";
     
     /**
-     * Table: Status
-     * Status contains the chore assigned to the champ and monitors its progress
-     * ("TODO", "INPROGRESS", "DONE")
-     **/
-    $status = "CREATE TABLE STATUS(
-        status VARCHAR(20),
-        cID INT(6) NOT NULL,
-        name VARCHAR(30) NOT NULL,
-        CONSTRAINT FOREIGN KEY(cID) REFERENCES CHORE(cID),
-        CONSTRAINT FOREIGN KEY(name) REFERENCES CHAMP(name),
-        PRIMARY KEY(status, cID, name)
-        )";
-        
-    
-    /**
      * Store the table creations in an array list for running queries
      **/
     $createTables = array($description, $room, $parent, $champ, $comments, 
-                            $chores, $status);
+                            $chores);
     
     foreach($createTables as $element){
         print_r($element);
         if(mysqli_query($conn, $element)){
         $tableName = substr($element, 13, strpos($element, '('));
-        print_r("TABLE: '$tableName' SUCCESSFULLY CREATED<br>");
+        print_r("TABLE: '$tableName' SUCCESSFULLY CREATED<br><br>");
     }else{
-        print_r("ERROR TABLE('$tableName'): ".mysqli_error($conn). "<br>");
+        print_r("ERROR TABLE('$tableName'): ".mysqli_error($conn). "<br><br>");
         }
     }
     mysqli_close($conn);
