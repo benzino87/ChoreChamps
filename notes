@@ -1,0 +1,17 @@
+(must complete)Upate points based on completed chores
+(must complete)clean up embedded javascript / php
+(must complete)documentation
+Make chore undraggable after assigning it to a child user
+update index css
+handle any number of children for chore distrubution on admin dashboard page(currently only able to handle two)
+(possible)Add timeframe for points calculations
+(possible)Implement cookies functionality - ideas?
+dynamic chore dropdowns / update sql to use appropirate chore descriptions
+Add comments section on admin and user dashboard
+login screen css(update)
+implement logout screen timer
+logout screen css(create)
+Verify sign up to show user error client side (ex: username already exists)
+Verivy login to show user error client side (ex: invalid login)
+add .htaccess permissions on raspi
+look into jquery mobile
