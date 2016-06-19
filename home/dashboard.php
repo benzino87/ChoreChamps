@@ -32,6 +32,7 @@ if(isset($_SESSION['accName']) && !isset($_SESSION['admAccName'])){
 }
 $currentChores = queryIncompleteChores($admAcc, $accName);
 $completedChores = queryCompleteChores($admAcc, $accName);
+$totalPoints = queryTotalPoints($admAcc, $accName);
 
 ?>
 <html>
@@ -68,7 +69,7 @@ $completedChores = queryCompleteChores($admAcc, $accName);
                 <h3>Click and drag the chores you've completed! Once complete you will score some points!</h3>
                 <p>Your total points are:</p>
                 <div class="pointvalue">
-                    <p>0</p>
+                    <p id="totalPoints"><?php echo $totalPoints?></p>
                 </div>
             </div>
             </div>
@@ -166,8 +167,16 @@ $completedChores = queryCompleteChores($admAcc, $accName);
             jQuery.post("updateChore.php", postData, function(){
                 alert("Chore complete!!");
             });
+            
+            var currentPoints = "<?php echo $totalPoints?>";
+            var postData2 = {
+                postAdmin : admin,
+                postName : user
+            };
+            jQuery.post("countPoints.php", postData2, function(response, status){
+                document.getElementById("totalPoints").innerHTML = response;
+            });
         }
-        
         
         
             

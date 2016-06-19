@@ -122,4 +122,24 @@ function queryCompleteChores($gName, $cName){
     }
     return $choreDescription;
 }
+function queryTotalPoints($gName, $cName){
+    $servername = "127.0.0.1";
+    $username = "benselj";
+    $password = "";
+    $db = "CHORECHAMPS";
+    $conn = mysqli_connect($servername, $username, $password, $db);
+    
+    $query = "SELECT SUM(pointValue) AS totalPoints
+                FROM CHORE
+                WHERE groupName = '$gName' AND
+                      cName = '$cName' AND
+                      status = 1";
+    $result = mysqli_query($conn, $query);
+    $row = $result->fetch_assoc();
+    $totalPoints = $row['totalPoints'];
+    if(!is_null($totalPoints)){
+        return $totalPoints;
+    }
+    return 0;
+}
 ?>

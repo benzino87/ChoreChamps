@@ -87,7 +87,7 @@ $choresForChampTwo = queryIncompleteChores($admAcc, $champs[1]);
         </div>
         <div class="choreList">
             <div class="unassignedChores">
-                <ul id="unassigned" ondrop="drop(event)" ondragover="allowDrop(event)"><h2 id="unnasignedTitle">Unassigned chore list</h2>
+                <ul id="unassigned"><h2 id="unnasignedTitle">Unassigned chore list</h2>
                 </ul>
             </div>
             <div class="assignedChoresOne">
@@ -195,10 +195,7 @@ $choresForChampTwo = queryIncompleteChores($admAcc, $champs[1]);
             var data = ev.dataTransfer.getData("text");
             // var getData = document.getElementById(data);
             ev.target.appendChild(document.getElementById(data));
-            
-            //after drop prevent list item from being draggable
-            document.getElementById(data).removeAttribute("draggable")
-
+        
             /**
              * Gets information about the node that was dropped and appends to 
              * a query string
@@ -237,9 +234,6 @@ $choresForChampTwo = queryIncompleteChores($admAcc, $champs[1]);
             var data = ev.dataTransfer.getData("text");
             // var getData = document.getElementById(data);
             ev.target.appendChild(document.getElementById(data));
-            
-            //after drop prevent list item from being draggable
-            document.getElementById(data).removeAttribute("draggable")
 
             /**
              * Gets information about the node that was dropped and appends to 
