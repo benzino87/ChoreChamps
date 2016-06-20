@@ -18,7 +18,7 @@ if(isset($_SESSION['admAccName']) && !isset($_SESSION['accName'])){
         $accName = $_GET['champ'];
         $admAcc = $_SESSION['admAccName'];
     }else{
-        header("Location: index.html");
+        header("Location: /index.html");
     }
 }
 /**

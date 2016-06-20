@@ -17,5 +17,6 @@ implement logout screen timer
 logout screen css(create)
 Verify sign up to show user error client side (ex: username already exists)
 Verivy login to show user error client side (ex: invalid login)
+permissions on SQL database
 add .htaccess permissions on raspi
 look into jquery mobile
